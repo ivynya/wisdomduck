@@ -1,10 +1,9 @@
-# wisdom duck @ https://wisdomduck.sdbagel.com
+# wisdom duck
 
 1) wisdom duck dispenses wisdom
 2) click or tap the duck to dispense more wisdom
 
 ## features
-- [the twemoji duck](https://twemoji.twitter.com)
 - dynamic mega-wisdom generation
 - officially questionable on ie5
 - also works on all devices ever through space and time big real guarantee
