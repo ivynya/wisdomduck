@@ -1,43 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>wisdom duck</title>
+		<meta
+			name="description"
+			content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019."
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="wisdom duck" />
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:description"
+			content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019. What more can you ask for?"
+		/>
+		<meta property="og:image" content="/assets/og_duck.png" />
+		<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="/assets/site.css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>wisdom duck</title>
-  <meta name="description"
-    content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="wisdom duck">
-  <meta property="og:type" content="website">
-  <meta property="og:description"
-    content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019. What more can you ask for?">
-  <meta property="og:image" content="/assets/og_duck.png">
-  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/assets/site.css" />
-  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-</head>
+	<body>
+		<main>
+			<div class="quack">
+				<div>
+					<h1>wisdom duck</h1>
+					<p>click or tap the duck to dispense wisdom</p>
+				</div>
+				<a onclick="dispense(event)" href="/wisdom">
+					<img
+						id="duck"
+						class="animated"
+						src="/assets/duck.svg"
+						alt="Click to generate more wisdom."
+					/>
+				</a>
 
-<body>
-  <main>
-    <div class="quack">
-      <div>
-        <h1>wisdom duck</h1>
-        <p>click or tap the duck to dispense wisdom</p>
-      </div>
-      <a onclick="dispense(event)" href="/wisdom">
-        <img id="duck" class="animated" src="/assets/duck.svg" alt="Click to generate more wisdom." />
-      </a>
+				<p id="wisdom" class="visible">"%WISDOM%"</p>
+			</div>
+		</main>
 
-      <p id="wisdom" class="visible">"%WISDOM%"</p>
-    </div>
-  </main>
+		<footer>
+			<a class="link" href="/">&copy; 2026 wisdomduck 🏳️‍⚧️</a> -
+			<a class="link" href="/privacy">Privacy</a>
+		</footer>
 
-  <footer>
-    <a class="link" href="/">&copy; 2023 wisdomduck</a> -
-    <a class="link" href="/privacy">Privacy</a>
-  </footer>
-
-  <script src="/assets/site.js"></script>
-</body>
-
+		<script src="/assets/site.js"></script>
+	</body>
 </html>

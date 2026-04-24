@@ -1,40 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>wisdom duck - stats</title>
+		<meta
+			name="description"
+			content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019."
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="wisdom duck" />
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:description"
+			content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019. What more can you ask for?"
+		/>
+		<meta property="og:image" content="/assets/og_duck.png" />
+		<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="/assets/site.css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>wisdom duck - stats</title>
-  <meta name="description"
-    content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="wisdom duck">
-  <meta property="og:type" content="website">
-  <meta property="og:description"
-    content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019. What more can you ask for?">
-  <meta property="og:image" content="/assets/og_duck.png">
-  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/assets/site.css" />
-  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-</head>
+	<body>
+		<main>
+			<div class="flex flex-column align-center justify-center">
+				<h1>wisdom duck stats</h1>
+				<p><a href="/api/stats/json" class="btn-outline">View raw JSON</a></p>
+				<br /><br />
+				<h3>Global Statistics</h3>
+				<pre>%STATS%</pre>
+			</div>
+			<br /><br />
+		</main>
 
-<body>
-  <main>
-    <div class="flex flex-column align-center justify-center">
-      <h1>wisdom duck stats</h1>
-      <p><a href="/api/stats/json" class="btn-outline">View raw JSON</a></p>
-      <br /><br />
-      <h3>Global Statistics</h3>
-      <pre>%STATS%</pre>
-    </div>
-    <br><br>
-  </main>
+		<footer>
+			<a class="link" href="/">&copy; 2026 wisdomduck</a> -
+			<a class="link" href="/privacy">Privacy</a>
+		</footer>
 
-  <footer>
-    <a class="link" href="/">&copy; 2023 wisdomduck</a> -
-    <a class="link" href="/privacy">Privacy</a>
-  </footer>
-
-  <script src="/assets/site.js"></script>
-</body>
-
+		<script src="/assets/site.js"></script>
+	</body>
 </html>

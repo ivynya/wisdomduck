@@ -22,8 +22,6 @@ func generateSubject() string {
 		"Friend",
 		"Guardian",
 		"Teacher",
-		"Ivy",
-		"Aidan", // Sponsored by AidanJSmith
 		"Goose", // Sponsored by AidanJSmith
 	}
 
@@ -52,14 +50,15 @@ func generateVerb() string {
 		"serves",
 		"accesses",
 		"incurs",
-		"steals",
 		"introduces",
 		"shows",
 		"extracts",
-		"forgives",
 		"develops",
-		"deconstructs",
 		"theorizes",
+		"quacks",
+		"meows",
+		"barks",
+		"enforces",
 	}
 
 	return verb[rand.Intn(len(verb))]
@@ -67,6 +66,7 @@ func generateVerb() string {
 
 func generateNoun() string {
 	noun := []string{
+		"trans rights",
 		"friendship",
 		"kindness",
 		"compassion",
