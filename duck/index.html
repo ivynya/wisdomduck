@@ -14,9 +14,13 @@
 			property="og:description"
 			content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019. What more can you ask for?"
 		/>
-		<meta property="og:image" content="/assets/og_duck.png" />
-		<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="/assets/site.css" />
+		<meta property="og:image" content="%BASEPATH%/assets/og_duck.png" />
+		<link
+			rel="shortcut icon"
+			href="%BASEPATH%/assets/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="%BASEPATH%/assets/site.css" />
 		<link
 			href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
 			rel="stylesheet"
@@ -30,11 +34,11 @@
 					<h1>wisdom duck</h1>
 					<p>click or tap the duck to dispense wisdom</p>
 				</div>
-				<a onclick="dispense(event)" href="/wisdom">
+				<a onclick="dispense(event)" href="%BASEPATH%/wisdom">
 					<img
 						id="duck"
 						class="animated"
-						src="/assets/duck.svg"
+						src="%BASEPATH%/assets/duck.svg"
 						alt="Click to generate more wisdom."
 					/>
 				</a>
@@ -44,10 +48,10 @@
 		</main>
 
 		<footer>
-			<a class="link" href="/">&copy; 2026 wisdomduck 🏳️‍⚧️</a> -
-			<a class="link" href="/privacy">Privacy</a>
+			<a class="link" href="%BASEPATH%">&copy; 2026 wisdomduck 🏳️‍⚧️</a> -
+			<a class="link" href="%BASEPATH%/privacy">Privacy</a>
 		</footer>
 
-		<script src="/assets/site.js"></script>
+		<script src="%BASEPATH%/assets/site.js"></script>
 	</body>
 </html>

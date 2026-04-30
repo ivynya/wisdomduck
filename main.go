@@ -23,10 +23,12 @@ func main() {
 	// allow for base path - default to /
 	var basePath string
 	basePath = os.Getenv("BASE_PATH")
-	if basePath == "" {
-		basePath = "/"
+	group := app.Group("/" + basePath)
+
+	// if set, add leading slash for replace in page endpoints
+	if basePath != "" {
+		basePath = "/" + basePath
 	}
-	group := app.Group(basePath)
 
 	// api endpoints
 	group.Get("/api/wisdom/dispense", func(c *fiber.Ctx) error {
@@ -65,16 +67,21 @@ func main() {
 		}
 		fBytes, _ := os.ReadFile("./duck/index.html")
 		fResp := strings.Replace(string(fBytes), "%WISDOM%", generateWisdom(), 1)
+		fResp = strings.ReplaceAll(fResp, "%BASEPATH%", basePath)
 		c.Response().Header.Set("Content-Type", "text/html")
 		return c.SendString(fResp)
 	})
 	group.Get("/privacy", func(c *fiber.Ctx) error {
-		return c.SendFile("./duck/privacy.html")
+		fBytes, _ := os.ReadFile("./duck/privacy.html")
+		fResp := strings.ReplaceAll(string(fBytes), "%BASEPATH%", basePath)
+		c.Response().Header.Set("Content-Type", "text/html")
+		return c.SendString(fResp)
 	})
 	group.Get("/stats", func(c *fiber.Ctx) error {
 		fBytes, _ := os.ReadFile("./duck/stats.html")
 		jsonBytes, _ := json.MarshalIndent(stats, "", "  ")
 		fResp := strings.Replace(string(fBytes), "%STATS%", string(jsonBytes), 1)
+		fResp = strings.ReplaceAll(fResp, "%BASEPATH%", basePath)
 		c.Response().Header.Set("Content-Type", "text/html")
 		return c.SendString(fResp)
 	})
@@ -88,6 +95,7 @@ func main() {
 		}
 		fBytes, _ := os.ReadFile("./duck/wisdom.html")
 		fResp := strings.Replace(string(fBytes), "%WISDOM%", generateWisdom(), 1)
+		fResp = strings.ReplaceAll(fResp, "%BASEPATH%", basePath)
 		c.Response().Header.Set("Content-Type", "text/html")
 		return c.SendString(fResp)
 	})

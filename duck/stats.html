@@ -14,9 +14,13 @@
 			property="og:description"
 			content="A duck that dispenses the finest wisdom. Unlimited wisdom, unlimited duck, unlimited power. Over 9000 wisdoms! Very experience, established since 2019. What more can you ask for?"
 		/>
-		<meta property="og:image" content="/assets/og_duck.png" />
-		<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="/assets/site.css" />
+		<meta property="og:image" content="%BASEPATH%/assets/og_duck.png" />
+		<link
+			rel="shortcut icon"
+			href="%BASEPATH%/assets/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="%BASEPATH%/assets/site.css" />
 		<link
 			href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
 			rel="stylesheet"
@@ -27,7 +31,11 @@
 		<main>
 			<div class="flex flex-column align-center justify-center">
 				<h1>wisdom duck stats</h1>
-				<p><a href="/api/stats/json" class="btn-outline">View raw JSON</a></p>
+				<p>
+					<a href="%BASEPATH%/api/stats/json" class="btn-outline"
+						>View raw JSON</a
+					>
+				</p>
 				<br /><br />
 				<h3>Global Statistics</h3>
 				<pre>%STATS%</pre>
@@ -36,10 +44,10 @@
 		</main>
 
 		<footer>
-			<a class="link" href="/">&copy; 2026 wisdomduck</a> -
-			<a class="link" href="/privacy">Privacy</a>
+			<a class="link" href="%BASEPATH%">&copy; 2026 wisdomduck</a> -
+			<a class="link" href="%BASEPATH%/privacy">Privacy</a>
 		</footer>
 
-		<script src="/assets/site.js"></script>
+		<script src="%BASEPATH%/assets/site.js"></script>
 	</body>
 </html>

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.addEventListener("keydown", (e) => {
 	if (e.key === "r") {
-		duck.src = "/assets/duck-rubber.svg";
+		duck.src = "./assets/duck-rubber.svg";
 	}
 });
 
@@ -24,7 +24,16 @@ function dispense(e) {
 	// Fetch dispensed wisdom from API
 	// On slow connections, animate
 	wisdom.classList.toggle("visible");
-	fetch("/api/wisdom/dispense" + window.location.search ?? "")
+
+	// get base path out of url, removing trailing /
+	var url = window.location.pathname;
+	url = url.replace(/\/$/, "");
+	// if on fallback page, remove this from the path too
+	if (url.endsWith("/wisdom")) {
+		url = url.slice(0, -"/wisdom".length);
+	}
+
+	fetch(url + "/api/wisdom/dispense" + window.location.search ?? "")
 		.then((r) => r.text())
 		.then((w) => (wisdom.innerText = `"${w}"`))
 		.then(() => wisdom.classList.toggle("visible"));
