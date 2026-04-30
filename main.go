@@ -20,8 +20,16 @@ func main() {
 	// create a fiber app
 	app := fiber.New()
 
+	// allow for base path - default to /
+	var basePath string
+	basePath = os.Getenv("BASE_PATH")
+	if basePath == "" {
+		basePath = "/"
+	}
+	group := app.Group(basePath)
+
 	// api endpoints
-	app.Get("/api/wisdom/dispense", func(c *fiber.Ctx) error {
+	group.Get("/api/wisdom/dispense", func(c *fiber.Ctx) error {
 		stats.APIVisits++
 		if c.Query("re") != "" {
 			ref := stats.Referrals[c.Query("re")]
@@ -31,7 +39,7 @@ func main() {
 		}
 		return c.SendString(generateWisdom())
 	})
-	app.Get("/api/wisdom/json", func(c *fiber.Ctx) error {
+	group.Get("/api/wisdom/json", func(c *fiber.Ctx) error {
 		stats.APIVisits++
 		if c.Query("re") != "" {
 			ref := stats.Referrals[c.Query("re")]
@@ -41,13 +49,13 @@ func main() {
 		}
 		return c.SendString("{\"wisdom\":\"" + generateWisdom() + "\"}")
 	})
-	app.Get("/api/stats/json", func(c *fiber.Ctx) error {
+	group.Get("/api/stats/json", func(c *fiber.Ctx) error {
 		jsonBytes, _ := json.MarshalIndent(stats, "", "  ")
 		return c.SendString(string(jsonBytes))
 	})
 
 	// page endpoints
-	app.Get("/", func(c *fiber.Ctx) error {
+	group.Get("/", func(c *fiber.Ctx) error {
 		stats.Visits++
 		if c.Query("re") != "" {
 			ref := stats.Referrals[c.Query("re")]
@@ -60,17 +68,17 @@ func main() {
 		c.Response().Header.Set("Content-Type", "text/html")
 		return c.SendString(fResp)
 	})
-	app.Get("/privacy", func(c *fiber.Ctx) error {
+	group.Get("/privacy", func(c *fiber.Ctx) error {
 		return c.SendFile("./duck/privacy.html")
 	})
-	app.Get("/stats", func(c *fiber.Ctx) error {
+	group.Get("/stats", func(c *fiber.Ctx) error {
 		fBytes, _ := os.ReadFile("./duck/stats.html")
 		jsonBytes, _ := json.MarshalIndent(stats, "", "  ")
 		fResp := strings.Replace(string(fBytes), "%STATS%", string(jsonBytes), 1)
 		c.Response().Header.Set("Content-Type", "text/html")
 		return c.SendString(fResp)
 	})
-	app.Get("/wisdom", func(c *fiber.Ctx) error {
+	group.Get("/wisdom", func(c *fiber.Ctx) error {
 		stats.Visits++
 		if c.Query("re") != "" {
 			ref := stats.Referrals[c.Query("re")]
@@ -84,7 +92,7 @@ func main() {
 		return c.SendString(fResp)
 	})
 	// page endpoints - static files
-	app.Static("/assets", "./duck/assets", fiber.Static{})
+	group.Static("/assets", "./duck/assets", fiber.Static{})
 
 	// start the server on port 5500
 	log.Fatal(app.Listen(":5500"))
